@@ -1,0 +1,5 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{% block title %}Tienda Estación{% endblock %}</title><link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"></head>
+<body><header class="header"><a class="brand" href="{{ url_for('index') }}"><span class="brand-mark">E</span><span>estación<small>objetos para todos los días</small></span></a><nav><a href="{{ url_for('index') }}#catalogo">Catálogo</a><a href="{{ url_for('index') }}#carrito">Carrito</a><a class="nav-admin" href="{{ url_for('admin') }}">Administración</a></nav></header>
+{% with messages = get_flashed_messages(with_categories=true) %}{% if messages %}<div class="messages" role="status">{% for category,message in messages %}<p class="message {{ category }}">{{ message }}</p>{% endfor %}</div>{% endif %}{% endwith %}
+<main>{% block content %}{% endblock %}</main><footer><strong>estación</strong><span>Una tienda de demostración · PC3</span><span>Entorno local con LocalStack</span></footer></body></html>
